@@ -11,7 +11,7 @@ namespace Post.Common.Events
         public CommentUpdatedEvent() : base(nameof(CommentUpdatedEvent))
         {
         }
-        public Guid MyProperty { get; set; }
+        public Guid CommentId { get; set; }
         public string Comment { get; set; }
         public string UserName { get; set; }
         public DateTime EditDate { get; set; }
