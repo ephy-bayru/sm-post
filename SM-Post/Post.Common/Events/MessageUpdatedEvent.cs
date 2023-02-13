@@ -11,6 +11,6 @@ namespace Post.Common.Events
         public MessageUpdatedEvent() : base(nameof(MessageUpdatedEvent))
         {
         }
-        public string Message { get; set; }
+        public string? Message { get; set; }
     }
 }
