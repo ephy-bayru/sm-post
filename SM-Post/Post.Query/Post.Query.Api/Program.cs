@@ -8,6 +8,10 @@ Action<DbContextOptionsBuilder> confugreDbContext = (o => o.UseSqlServer(builder
 builder.Services.AddDbContext<DatabaseContext>(confugreDbContext);
 builder.Services.AddSingleton<DatabaseContextFactory>(new DatabaseContextFactory(confugreDbContext));
 
+//create db and tables
+var dataContext = builder.Services.BuildServiceProvider().GetRequiredService<DatabaseContext>();
+dataContext.Database.EnsureCreated();
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
